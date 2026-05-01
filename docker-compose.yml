@@ -2,9 +2,10 @@
 # Ontology Viewer — Docker Compose Production Stack
 # =============================================================================
 # Usage:
-#   1. Run ./scripts/init-ssl.sh to bootstrap SSL and .env
-#   2. docker compose up -d
-#   3. (Optional) Obtain real SSL cert — see scripts/init-ssl.sh output
+#   1. Place SSL certs in nginx/ssl/: fullchain.pem, privkey.pem
+#   2. Generate DH params: openssl dhparam -out nginx/ssl/dhparam.pem 2048
+#   3. Copy .env.example to .env and adjust settings
+#   4. docker compose up -d
 # =============================================================================
 
 services:
@@ -19,18 +20,15 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      # Nginx configuration (envsubst replaces ${DOMAIN_NAME} only)
-      - ./nginx/nginx.conf:/etc/nginx/templates/nginx.conf.template:ro
+      # Nginx configuration (mounted directly as main config)
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/conf.d/security.conf:/etc/nginx/conf.d/security.conf:ro
       # Frontend static files (built by frontend service) — must come BEFORE error pages
       - frontend_assets:/usr/share/nginx/html:ro
-      # Custom error pages (overlay on top of frontend volume)
-      - ./nginx/html/429.html:/usr/share/nginx/html/429.html:ro
-      - ./nginx/html/50x.html:/usr/share/nginx/html/50x.html:ro
-      # SSL certificates
+      # Custom error pages (separate directory — mounted before frontend volume)
+      - ./nginx/html:/usr/share/nginx/custom_errors:ro
+      # SSL certificates (user-provided)
       - ./nginx/ssl:/etc/nginx/ssl:ro
-      - ./certbot/conf:/etc/letsencrypt:ro
-      - ./certbot/www:/var/www/certbot:ro
       # Logs (persistent, fail2ban-compatible)
       - nginx_logs:/var/log/nginx
     environment:
@@ -55,7 +53,7 @@ services:
           cpus: "0.25"
           memory: 64M
     healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:80/.well-known/acme-challenge/"]
+      test: ["CMD", "curl", "-f", "-s", "-k", "--http1.1", "-o", "/dev/null", "-A", "nginx-health-check", "https://localhost/"]
       interval: 30s
       timeout: 10s
       start_period: 10s
@@ -91,16 +89,16 @@ services:
       resources:
         limits:
           cpus: "1.0"
-          memory: 512M
+          memory: 4G
         reservations:
           cpus: "0.25"
-          memory: 128M
+          memory: 2G
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:${BACKEND_PORT:-8000}/api/health')"]
       interval: 30s
       timeout: 10s
-      start_period: 15s
-      retries: 3
+      start_period: 120s
+      retries: 5
     logging:
       driver: "json-file"
       options:
@@ -120,22 +118,6 @@ services:
     # This container exits after copying built assets — that's expected
     restart: "no"
 
-  # ===========================================================================
-  # Certbot — Let's Encrypt Certificate Management
-  # ===========================================================================
-  certbot:
-    image: certbot/certbot:latest
-    container_name: ontology-certbot
-    volumes:
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
-    # Not started automatically — run manually:
-    #   docker compose run --rm certbot certonly \
-    #       --webroot -w /var/www/certbot -d ${DOMAIN_NAME}
-    profiles:
-      - certbot
-    depends_on:
-      - nginx
 
 # =============================================================================
 # Networks — Isolate backend from direct external access
