@@ -74,13 +74,13 @@ services:
     container_name: ontology-backend
     restart: unless-stopped
     expose:
-      - "${BACKEND_PORT:-8000}"
+      - "8000"
     volumes:
       - ./data:/app/data:ro
     environment:
       - DATA_DIR=/app/data
       - HOST=0.0.0.0
-      - PORT=${BACKEND_PORT:-8000}
+      - PORT=8000
       - RELOAD=false
       - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-https://example.com}
     networks:
@@ -94,7 +94,7 @@ services:
           cpus: "0.25"
           memory: 2G
     healthcheck:
-      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:${BACKEND_PORT:-8000}/api/health')"]
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]
       interval: 30s
       timeout: 10s
       start_period: 120s
