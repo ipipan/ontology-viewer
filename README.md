@@ -179,3 +179,7 @@ ontology-viewer/
   "count": 8
 }
 ```
+
+## Acknowledgements
+
+This research was funded in whole by the National Science Centre, Poland, grant 2023/50/A/HS2/00559 ("Universal Discourse: a multilingual model of discourse relations").
