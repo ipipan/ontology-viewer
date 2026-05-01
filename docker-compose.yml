@@ -1,0 +1,157 @@
+# =============================================================================
+# Ontology Viewer — Docker Compose Production Stack
+# =============================================================================
+# Usage:
+#   1. Run ./scripts/init-ssl.sh to bootstrap SSL and .env
+#   2. docker compose up -d
+#   3. (Optional) Obtain real SSL cert — see scripts/init-ssl.sh output
+# =============================================================================
+
+services:
+  # ===========================================================================
+  # Nginx Reverse Proxy — Entry point, SSL termination, DDoS protection
+  # ===========================================================================
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: ontology-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      # Nginx configuration (envsubst replaces ${DOMAIN_NAME} only)
+      - ./nginx/nginx.conf:/etc/nginx/templates/nginx.conf.template:ro
+      - ./nginx/conf.d/security.conf:/etc/nginx/conf.d/security.conf:ro
+      # Frontend static files (built by frontend service) — must come BEFORE error pages
+      - frontend_assets:/usr/share/nginx/html:ro
+      # Custom error pages (overlay on top of frontend volume)
+      - ./nginx/html/429.html:/usr/share/nginx/html/429.html:ro
+      - ./nginx/html/50x.html:/usr/share/nginx/html/50x.html:ro
+      # SSL certificates
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+      - ./certbot/conf:/etc/letsencrypt:ro
+      - ./certbot/www:/var/www/certbot:ro
+      # Logs (persistent, fail2ban-compatible)
+      - nginx_logs:/var/log/nginx
+    environment:
+      - DOMAIN_NAME=${DOMAIN_NAME:-example.com}
+      # Only substitute DOMAIN_NAME — prevents envsubst from breaking
+      # nginx variables like $host, $uri, $remote_addr, etc.
+      - NGINX_ENVSUBST_FILTER=DOMAIN_NAME
+    depends_on:
+      frontend:
+        condition: service_completed_successfully
+      backend:
+        condition: service_healthy
+    networks:
+      - frontend_net
+      - backend_net
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 256M
+        reservations:
+          cpus: "0.25"
+          memory: 64M
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:80/.well-known/acme-challenge/"]
+      interval: 30s
+      timeout: 10s
+      start_period: 10s
+      retries: 3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+  # ===========================================================================
+  # Backend — FastAPI / Uvicorn API Server
+  # ===========================================================================
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ontology-backend
+    restart: unless-stopped
+    expose:
+      - "${BACKEND_PORT:-8000}"
+    volumes:
+      - ./data:/app/data:ro
+    environment:
+      - DATA_DIR=/app/data
+      - HOST=0.0.0.0
+      - PORT=${BACKEND_PORT:-8000}
+      - RELOAD=false
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-https://example.com}
+    networks:
+      - backend_net
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 512M
+        reservations:
+          cpus: "0.25"
+          memory: 128M
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:${BACKEND_PORT:-8000}/api/health')"]
+      interval: 30s
+      timeout: 10s
+      start_period: 15s
+      retries: 3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # ===========================================================================
+  # Frontend — Angular Build (build-only, outputs to shared volume)
+  # ===========================================================================
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ontology-frontend-build
+    volumes:
+      - frontend_assets:/app/dist/ontology-viewer
+    # This container exits after copying built assets — that's expected
+    restart: "no"
+
+  # ===========================================================================
+  # Certbot — Let's Encrypt Certificate Management
+  # ===========================================================================
+  certbot:
+    image: certbot/certbot:latest
+    container_name: ontology-certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    # Not started automatically — run manually:
+    #   docker compose run --rm certbot certonly \
+    #       --webroot -w /var/www/certbot -d ${DOMAIN_NAME}
+    profiles:
+      - certbot
+    depends_on:
+      - nginx
+
+# =============================================================================
+# Networks — Isolate backend from direct external access
+# =============================================================================
+networks:
+  frontend_net:
+    driver: bridge
+  backend_net:
+    driver: bridge
+    internal: true
+
+# =============================================================================
+# Volumes
+# =============================================================================
+volumes:
+  frontend_assets:
+    driver: local
+  nginx_logs:
+    driver: local

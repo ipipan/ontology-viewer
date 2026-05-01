@@ -1,0 +1,1678 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://purl.org/olia/discourse/discourse.ISO.PL.owl#"
+     xml:base="http://purl.org/olia/discourse/discourse.ISO.PL.owl"
+     xmlns:iso="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#">
+
+    <owl:Ontology rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl">
+        <rdfs:comment xml:lang="en">Corpus examples in Polish representing various relations of the ISO ontology.</rdfs:comment>
+    </owl:Ontology>
+
+<!-- CAUSE -->
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Cause">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Cause"/>
+    <rdfs:label>Las jest także olbrzymią fabryką tlenu, więc zapewnia komfort oddychania.</rdfs:label>
+
+    <skos:notation>PDC-G 1</skos:notation>
+
+    <hasReason>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Reason_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Reason"/>
+            <rdfs:label>Las jest także olbrzymią fabryką tlenu,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasReason>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_wiec">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>więc</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasResult>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Result_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Result"/>
+            <rdfs:label>zapewnia komfort oddychania.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasResult>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Cause_2">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Cause"/>
+    <rdfs:label>W nowym biurowcu użytkownicy będą czuć się bezpiecznie, ponieważ zostanie on objęty całodobową ochroną.</rdfs:label>
+
+    <skos:notation>PDC-G 2</skos:notation>
+
+    <hasResult>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Result_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Result"/>
+            <rdfs:label>W nowym biurowcu użytkownicy będą czuć się bezpiecznie,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasResult>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_poniewaz">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>ponieważ</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasReason>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Reason_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Reason"/>
+            <rdfs:label>zostanie on objęty całodobową ochroną.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasReason>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Cause_3">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Cause" />
+    <rdfs:label>Nie wykonali zadania w terminie, więc zostali wezwani do kierowniczki.</rdfs:label>
+
+    <skos:notation>PDC-G 3</skos:notation>
+
+    <hasReason>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Reason_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Reason"/>
+            <rdfs:label>Nie wykonali zadania w terminie,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasReason>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_wiec_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>więc</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasResult>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Result_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Result"/>
+            <rdfs:label>zostali wezwani do kierowniczki.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasResult>
+</owl:NamedIndividual>
+
+
+<!-- CONDITION -->
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Condition_1">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Condition"/>
+    <rdfs:label>Świat zmieniłby się w koszmar, gdyby małżonkowie widzieli w swoim dziecku tylko ciężar i zagrożenie.</rdfs:label>
+
+    <skos:notation>PDC-G 4</skos:notation>
+
+    <hasConsequent>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Consequent_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Consequent"/>
+            <rdfs:label>Świat zmieniłby się w koszmar,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasConsequent>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_gdyby_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>gdyby</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasAntecedent>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Antecedent_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Antecedent"/>
+            <rdfs:label>małżonkowie widzieli w swoim dziecku tylko ciężar i zagrożenie.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasAntecedent>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Condition_2">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Condition"/>
+    <rdfs:label>Jeśli pieniądze te dostaną, atmosfera w placówkach szpitalnych ulegnie poprawie.</rdfs:label>
+
+    <skos:notation>PDC-G 5</skos:notation>
+
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_jesli">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>Jeśli</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasAntecedent>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Antecedent_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Antecedent"/>
+            <rdfs:label>pieniądze te dostaną,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasAntecedent>
+    <hasConsequent>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Consequent_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Consequent"/>
+            <rdfs:label>atmosfera w placówkach szpitalnych ulegnie poprawie.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasConsequent>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Condition_3">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Condition" />
+    <rdfs:label>Gdyby pogoda była lepsza, mogłaby wyjść na rower.</rdfs:label>
+
+    <skos:notation>PDC-G 6</skos:notation>
+
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_gdyby">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>Gdyby</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasAntecedent>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Antecedent_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Antecedent"/>
+            <rdfs:label>pogoda była lepsza,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasAntecedent>
+    <hasConsequent>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Consequent_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Consequent"/>
+            <rdfs:label>mogłaby wyjść na rower.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasConsequent>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Condition_4">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Condition" />
+    <rdfs:label>Jeśli nie bedzie świecić słońce, to nie wyjdę na rower.</rdfs:label>
+
+    <skos:notation>PDC-G 7</skos:notation>
+
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_jesli_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>Jeśli</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasAntecedent>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Antecedent_4">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Antecedent"/>
+            <rdfs:label>nie bedzie świecić słońce,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasAntecedent>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_to_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>to</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasConsequent>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Consequent_4">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Consequent"/>
+            <rdfs:label>nie wyjdę na rower.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</skos:order>
+        </owl:NamedIndividual>
+    </hasConsequent>
+</owl:NamedIndividual>
+
+
+
+<!-- NEGATIVE CONDITION -->
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_NegativeCondition_1">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#NegativeCondition"/>
+    <rdfs:label>Mamy prawo odmówić dalszych napraw i zażądać zwrotu pieniędzy, chyba że wada nie była istotna.</rdfs:label>
+
+    <skos:notation>PDC-G 8</skos:notation>
+
+    <hasConsequentOfNegativeCondition>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_ConsequentOfNegativeCondition_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#ConsequentOfNegativeCondition"/>
+            <rdfs:label>Mamy prawo odmówić dalszych napraw i zażądać zwrotu pieniędzy,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasConsequentOfNegativeCondition>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_chyba_ze_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>chyba że</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasNegatedAntecedent>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_NegatedAntecedent_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#NegatedAntecedent"/>
+            <rdfs:label>wada nie była istotna.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasNegatedAntecedent>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_NegativeCondition_2">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#NegativeCondition"/>
+    <rdfs:label>Jeśli fundusz rezerwowy nie zostanie wykorzystany, to zostanie oddany „do Warszawy”.</rdfs:label>
+
+    <skos:notation>PDC-G 9</skos:notation>
+
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_jesli">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>Jeśli</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasNegatedAntecedent>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_NegatedAntecedent_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#NegatedAntecedent"/>
+            <rdfs:label>fundusz rezerwowy nie zostanie wykorzystany,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasNegatedAntecedent>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_to">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>to</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasConsequentOfNegativeCondition>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_ConsequentOfNegativeCondition_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#ConsequentOfNegativeCondition"/>
+            <rdfs:label>zostanie oddany „do Warszawy”.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</skos:order>
+        </owl:NamedIndividual>
+    </hasConsequentOfNegativeCondition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_NegativeCondition_3">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#NegativeCondition"/>
+    <rdfs:label>Nie pójdziemy na plażę, chyba że będzie ciepło.</rdfs:label>
+
+    <skos:notation>PDC-G 10</skos:notation>
+
+    <hasConsequentOfNegativeCondition>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_ConsequentOfNegativeCondition_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#ConsequentOfNegativeCondition"/>
+            <rdfs:label>Nie pójdziemy na plażę</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasConsequentOfNegativeCondition>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_chyba_ze_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>chyba że</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasNegatedAntecedent>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_NegatedAntecedent_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#NegatedAntecedent"/>
+            <rdfs:label>będzie ciepło.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasNegatedAntecedent>
+</owl:NamedIndividual>
+
+
+<!-- PURPOSE -->
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Purpose_2">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Purpose"/>
+    <rdfs:label>Aby skorygować błędy w sposobie myślenia, zacznij prowadzić wykaz codziennych zajęć.</rdfs:label>
+
+    <skos:notation>PDC-G 11</skos:notation>
+
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_aby">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>Aby</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasGoal>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Goal_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Goal"/>
+            <rdfs:label>skorygować błędy w sposobie myślenia,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasGoal>
+    <hasEnablement>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Enablement_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Enablement"/>
+            <rdfs:label>zacznij prowadzić wykaz codziennych zajęć.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasEnablement>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Purpose_3">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Purpose"/>
+    <rdfs:label>Gość automatycznie sięga po sztućce leżące na zewnątrz, i w ten sposób dostosowuje ich użycie do kolejności podawanych dań.</rdfs:label>
+
+    <skos:notation>PDC-G 12</skos:notation>
+
+    <hasEnablement>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Enablement_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Enablement"/>
+            <rdfs:label>Gość automatycznie sięga po sztućce leżące na zewnątrz,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasEnablement>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_i_w_ten_sposob">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>i w ten sposób</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasGoal>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Goal_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Goal"/>
+            <rdfs:label>dostosowuje ich użycie do kolejności podawanych dań.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasGoal>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Purpose_4">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Purpose"/>
+    <rdfs:label>Idź do babci, żeby dała ci 20 złotych.</rdfs:label>
+
+    <skos:notation>PDC-G 13</skos:notation>
+
+    <hasEnablement>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Enablement_4">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Enablement"/>
+            <rdfs:label>Idź do babci</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasEnablement>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_zeby">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>żeby</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasGoal>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Goal_4">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Goal"/>
+            <rdfs:label>dała ci 20 złotych</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasGoal>
+</owl:NamedIndividual>
+
+
+<!-- MANNER -->
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Manner_1">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Manner"/>
+    <rdfs:label>Szuka się więc sposobów, jak je poprawić, między innymi poprzez kojarzenie leczenia chirurgicznego z pooperacyjną chemioterapią.</rdfs:label>
+
+    <skos:notation>PDC-G 14</skos:notation>
+
+    <hasAchievement>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Achievement_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Achievement"/>
+            <rdfs:label>Szuka się więc sposobów, jak je poprawić,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasAchievement>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_miedzy_innymi_poprzez">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>między innymi poprzez</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasMeans>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Means_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Means"/>
+            <rdfs:label>kojarzenie leczenia chirurgicznego z pooperacyjną chemioterapią.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasMeans>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Manner_2">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Manner" />
+    <rdfs:label>Udowodniła swoją skuteczność poprzez udaną realizację wielu zadań</rdfs:label>
+
+    <skos:notation>PDC-G 15</skos:notation>
+
+    <hasAchievement>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Achievement_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Achievement"/>
+            <rdfs:label>Udowodniła swoją skuteczność</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasAchievement>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owlConnective_poprzez">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>poprzez</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasMeans>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Means_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Means"/>
+            <rdfs:label>udaną realizację wielu zadań.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasMeans>
+</owl:NamedIndividual>
+
+
+<!-- CONCESSION -->
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Concession">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Concession"/>
+    <rdfs:label>Widzimy nieraz filmy nakręcane według wybitnego utworu, a mimo to zupełnie niepodobne.</rdfs:label>
+
+    <skos:notation>PDC-G 16</skos:notation>
+
+    <hasExpectationRaiser>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_ExpectationRaiser_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#ExpectationRaiser"/>
+            <rdfs:label>Widzimy nieraz filmy nakręcane według wybitnego utworu,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasExpectationRaiser>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_a_mimo_to">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>a mimo to</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasExpectationDenier>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_ExpectationDenier_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#ExpectationDenier"/>
+            <rdfs:label>zupełnie niepodobne.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasExpectationDenier>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Concession_2">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Concession"/>
+    <rdfs:label>Dostępnych jest wiele poradników na temat szczęśliwego małżeństwa, natomiast brakuje publikacji poruszających kwestie przybranego rodzicielstwa.</rdfs:label>
+
+    <skos:notation>PDC-G 17</skos:notation>
+
+    <hasExpectationRaiser>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_ExpectationRaiser_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#ExpectationRaiser"/>
+            <rdfs:label>Dostępnych jest wiele poradników na temat szczęśliwego małżeństwa,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasExpectationRaiser>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_natomiast">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>natomiast</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasExpectationDenier>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_ExpectationDenier_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#ExpectationDenier"/>
+            <rdfs:label>brakuje publikacji poruszających kwestie przybranego rodzicielstwa.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasExpectationDenier>
+</owl:NamedIndividual>
+
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Concession_3">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Concession" />
+    <rdfs:label>Mimo że ciężko pracowali, nie udało im się dostać podwyżki</rdfs:label>
+
+    <skos:notation>PDC-G 18</skos:notation>
+
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_mimo_ze">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>Mimo że</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasExpectationRaiser>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_ExpectationRaiser_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#ExpectationRaiser"/>
+            <rdfs:label>ciężko pracowali,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasExpectationRaiser>
+    <hasExpectationDenier>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_ExpectationDenier_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#ExpectationDenier"/>
+            <rdfs:label>nie udało im się dostać podwyżki.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasExpectationDenier>
+</owl:NamedIndividual>
+
+<!-- CONTRAST -->
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Contrast">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Contrast"/>
+    <rdfs:label>Nie stoją w pierwszym szeregu, ale wykonują nieraz ciężkie i niewdzięczne zadania.</rdfs:label>
+
+    <skos:notation>PDC-G 19</skos:notation>
+
+    <hasArg1>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg1_Contrast">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+            <rdfs:label>Nie stoją w pierwszym szeregu,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasArg1>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_ale">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>ale</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasArg2>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg2_Contrast">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+            <rdfs:label>wykonują nieraz ciężkie i niewdzięczne zadania.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasArg2>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Contrast_2">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Contrast"/>
+    <rdfs:label>Konkurs ma z jednej strony być sprzeciwem wobec zaniku sztuki opowiadania, z drugiej strony ma wzmóc i przyspieszyć rychłe odrodzenie tej sztuki.</rdfs:label>
+
+    <skos:notation>PDC-G 20</skos:notation>
+
+    <hasArg1>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg1_Contrast_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+            <rdfs:label>Konkurs ma</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasArg1>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_z_jednej_strony">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>z jednej strony</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasArg1>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg1_Contrast_2.1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+            <rdfs:label>być sprzeciwem wobec zaniku sztuki opowiadania,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasArg1>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_z_drugiej_strony">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>z drugiej strony</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasArg2>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg2_Contrast_2.2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+            <rdfs:label>ma wzmóc i przyspieszyć rychłe odrodzenie tej sztuki.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</skos:order>
+        </owl:NamedIndividual>
+    </hasArg2>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Contrast_3">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Contrast"/>
+    <rdfs:label>Jedni chwalą ją za bycie świetną liderką, inni zaś krytykują ją za despotyczną postawę.</rdfs:label>
+
+    <skos:notation>PDC-G 21</skos:notation>
+
+    <hasArg1>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg1_Contrast_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+            <rdfs:label>Jedni chwalą ją za bycie świetną liderką,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasArg1>
+    <hasArg2>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg2_Contrast_3.1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+            <rdfs:label>inni</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasArg2>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_zas">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>zaś</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasArg2>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg2_Contrast_3.2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+            <rdfs:label>krytykują ją za despotyczną postawę.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</skos:order>
+        </owl:NamedIndividual>
+    </hasArg2>
+</owl:NamedIndividual>
+
+
+<!-- EXCEPTION -->
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Exception_1">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exception"/>
+    <rdfs:label>Akcje spółki są dopuszczone do obrotu na rynku regulowanym, z zastrzeżeniem art. 8 ust. 3.</rdfs:label>
+
+    <skos:notation>PDC-G 22</skos:notation>
+
+    <hasRegular>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Regular_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Regular"/>
+            <rdfs:label>Akcje spółki są dopuszczone do obrotu na rynku regulowanym,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasRegular>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_z_zastrzezeniem">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>z zastrzeżeniem</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasExclusion>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Exclusion_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exclusion"/>
+            <rdfs:label>art. 8 ust. 3.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasExclusion>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Exception_2">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exception"/>
+    <rdfs:label>Wszystkie studentki musiały napisać test, z wyjątkiem tych sprytniejszych, które zdobyły zwolnienie lekarskie.</rdfs:label>
+
+    <skos:notation>PDC-G 23</skos:notation>
+
+    <hasRegular>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Regular_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Regular"/>
+            <rdfs:label>Wszystkie studentki musiały napisać test,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasRegular>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_z_wyjatkiem">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>z wyjatkiem</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasExclusion>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Exclusion_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exclusion"/>
+            <rdfs:label>tych sprytniejszych, które zdobyły zwolnienie lekarskie.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasExclusion>
+</owl:NamedIndividual>
+
+
+<!-- SIMILARITY -->
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Similarity_1">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Similarity"/>
+    <rdfs:label>Pracują niejako dla dobra wspólnoty, tak jak Marysia teraz w pralni pracuje.</rdfs:label>
+
+    <skos:notation>PDC-G 24</skos:notation>
+
+    <hasArg1>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg1_Similarity_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+            <rdfs:label>Pracują niejako dla dobra wspólnoty,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasArg1>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_tak_jak">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>tak jak</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasArg2>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg2_Similarity_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+            <rdfs:label>Marysia teraz w pralni pracuje.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasArg2>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Similarity_2">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Similarity"/>
+    <rdfs:label>Dużo kłopotów sprawiają cudzoziemcom czasowniki dokonane. Mają też problemy z ortografią i odmianą wyrazów.</rdfs:label>
+
+    <skos:notation>PDC-G 25</skos:notation>
+
+    <hasArg1>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg1_Similarity_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+            <rdfs:label>Dużo kłopotów sprawiają cudzoziemcom czasowniki dokonane.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasArg1>
+    <hasArg2>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg2_Similarity_2.1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+            <rdfs:label>Mają</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasArg2>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_tez">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>też</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasArg2>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg2_Similarity_2.2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+            <rdfs:label>problemy z ortografią i odmianą wyrazów.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</skos:order>
+        </owl:NamedIndividual>
+    </hasArg2>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Similarity_3">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Similarity"/>
+    <rdfs:label>Podobnie jak jego żona, lubił sobie podjadać po 18:00.</rdfs:label>
+
+    <skos:notation>PDC-G 26</skos:notation>
+
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_podobnie_jak">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>Podobnie jak</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasArg1>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg1_Similarity_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+            <rdfs:label>jego żona,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasArg1>
+    <hasArg2>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg2_Similarity_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+            <rdfs:label>lubił sobie podjadać po 18:00.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasArg2>
+</owl:NamedIndividual>
+
+
+<!-- SUBSTITUTION -->
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Substitution_1">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Substitution"/>
+    <rdfs:label>Powinna przecież promieniować światłem trwałym, zamiast urządzać jednorazowe fajerwerki.</rdfs:label>
+
+    <skos:notation>PDC-G 27</skos:notation>
+
+    <hasFavouredAlternative>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_FavouredAlternative_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FavouredAlternative"/>
+            <rdfs:label>promieniować światłem trwałym,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasFavouredAlternative>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_zamiast">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>zamiast</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasDisfavouredAlternative>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_DisfavouredAlternative_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#DisfavouredAlternative"/>
+            <rdfs:label>urządzać jednorazowe fajerwerki.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasDisfavouredAlternative>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Substitution_2">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Substitution"/>
+    <rdfs:label>Zamiast pójść na spacer, postanowiła zostać w domu i napisać instrukcję anotacyjną.</rdfs:label>
+
+    <skos:notation>PDC-G 28</skos:notation>
+
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_zamiast">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>Zamiast</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasDisfavouredAlternative>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_DisfavouredAlternative_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#DisfavouredAlternative"/>
+            <rdfs:label>pójść na spacer,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasDisfavouredAlternative>
+    <hasFavouredAlternative>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_FavouredAlternative_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FavouredAlternative"/>
+            <rdfs:label>postanowiła zostać w domu i napisać instrukcję anotacyjną.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasFavouredAlternative>
+</owl:NamedIndividual>
+
+
+<!-- CONJUNCTION -->
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Conjunction_1">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Conjunction"/>
+    <rdfs:label>W piątek opiniować tę propozycję będzie Komisja Gospodarki, a we wtorek zajmie się nią Rada Miasta.</rdfs:label>
+
+    <skos:notation>PDC-G 29</skos:notation>
+
+    <hasArg1>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg1_Conjunction_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+            <rdfs:label>W piątek opiniować tę propozycję będzie Komisja Gospodarki,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasArg1>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_a">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>a</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasArg2>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg2_Conjunction_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+            <rdfs:label>we wtorek zajmie się nią Rada Miasta.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasArg2>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Conjunction_2">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Conjunction"/>
+    <rdfs:label>W tym czasie siedzieli w oddzielnej sali i czytali gazetę.</rdfs:label>
+
+    <skos:notation>PDC-G 30</skos:notation>
+
+    <hasArg1>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg1_Conjunction_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+            <rdfs:label>W tym czasie siedzieli w oddzielnej sali</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasArg1>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_i">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>i</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasArg2>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg2_Conjunction_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+            <rdfs:label>czytali gazetę.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasArg2>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Conjunction_3">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Conjunction"/>
+    <rdfs:label>Karol kupił nowego laptopa i wybrał nowoczesne akcesoria.</rdfs:label>
+
+    <skos:notation>PDC-G 31</skos:notation>
+
+    <hasArg1>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg1_Conjunction_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+            <rdfs:label>Karol kupił nowego laptopa</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasArg1>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_i_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>i</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasArg2>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg2_Conjunction_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+            <rdfs:label>wybrał nowoczesne akcesoria.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasArg2>
+</owl:NamedIndividual>
+
+
+<!-- DISJUNCTION -->
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Disjunction_1">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Disjunction"/>
+    <rdfs:label>Nic ci złego nie zrobię, (jeżeli mi będziesz posłuszny,) albo ci łeb rozetnę na dwoje, (gdybyś mi się sprzeciwiać zamierzał.)</rdfs:label>
+
+    <skos:notation>PDC-G 32</skos:notation>
+
+    <hasArg1>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg1_Disjunction_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+            <rdfs:label>Nic ci złego nie zrobię (jeżeli mi będziesz posłuszny),</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasArg1>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_albo_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>albo</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasArg2>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg2_Disjunction_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+            <rdfs:label>ci łeb rozetnę na dwoje (gdybyś mi się sprzeciwiać zamierzał.)</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasArg2>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Disjunction_2">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Disjunction"/>
+    <rdfs:label>Opuszczają pokój, w którym jest telewizor lub przełączają kanał.</rdfs:label>
+
+    <skos:notation>PDC-G 33</skos:notation>
+
+    <hasArg1>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg1_Disjunction_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+            <rdfs:label>Opuszczają pokój, w którym jest telewizor</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasArg1>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_lub">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>lub</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasArg2>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg2_Disjunction_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+            <rdfs:label>przełączają kanał.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasArg2>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Disjunction_3">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Disjunction"/>
+    <rdfs:label>Albo teraz się zdecydujesz na pracę przy tworzeniu rodzimych technologii, albo stracisz tę okazję na zawsze.</rdfs:label>
+
+    <skos:notation>PDC-G 34</skos:notation>
+
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_albo_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>Albo</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasArg1>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg1_Disjunction_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+            <rdfs:label>teraz się zdecydujesz na pracę przy tworzeniu rodzimych technologii,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasArg1>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_albo_4">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>albo</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasArg2>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg2_Disjunction_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+            <rdfs:label>stracisz tę okazję na zawsze.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</skos:order>
+        </owl:NamedIndividual>
+    </hasArg2>
+</owl:NamedIndividual>
+
+
+<!-- EXEMPLIFICATION -->
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Exemplification_1">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exemplification" />
+    <rdfs:label>Kilka eksponatów to prawdziwe ciekawostki. Na przykład przepiękne XIX-wieczne krynoliny.</rdfs:label>
+
+    <skos:notation>PDC-G 35</skos:notation>
+
+    <hasSet>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Set_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Set"/>
+            <rdfs:label>Kilka eksponatów to prawdziwe ciekawostki.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasSet>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_na_przyklad_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>Na przykład</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasInstance>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Instance_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Instance"/>
+            <rdfs:label>przepiękne XIX-wieczne krynoliny.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasInstance>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Exemplification_2">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exemplification"/>
+    <rdfs:label>Ksiądz ma prawo również do odpoczynku i np. wyjechać sobie w którąś sobotę na narty.</rdfs:label>
+
+    <skos:notation>PDC-G 36</skos:notation>
+
+    <hasSet>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Set_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Set"/>
+            <rdfs:label>Ksiądz ma prawo również do odpoczynku</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasSet>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_i_np">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>i np.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasInstance>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Instance_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Instance"/>
+            <rdfs:label>wyjechać sobie w którąś sobotę na narty.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasInstance>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Exemplification_3">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exemplification"/>
+    <rdfs:label>Ludzie robią różne rzeczy, żeby polepszyć swój materialny byt. Na przykład grają na loterii.</rdfs:label>
+
+    <skos:notation>PDC-G 37</skos:notation>
+
+    <hasSet>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Set_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Set"/>
+            <rdfs:label>Ludzie robią różne rzeczy, żeby polepszyć swój materialny byt.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasSet>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_na_przyklad">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>Na przykład</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasInstance>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Instance_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Instance"/>
+            <rdfs:label>grają na loterii.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasInstance>
+</owl:NamedIndividual>
+
+
+<!-- ELABORATION -->
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Elaboration_1">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Elaboration"/>
+    <rdfs:label>Bergson był obiektem licznych ataków, w szczególności po ogłoszeniu Ewolucji twórczej.</rdfs:label>
+
+    <skos:notation>PDC-G 38</skos:notation>
+
+    <hasBroad>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Broad_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Broad"/>
+            <rdfs:label>Bergson był obiektem licznych ataków,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasBroad>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_w_szczegolnosci">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>w szczególności</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasSpecific>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Specific_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Specific"/>
+            <rdfs:label>po ogłoszeniu Ewolucji twórczej.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasSpecific>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Elaboration_2">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Elaboration"/>
+    <rdfs:label>Chciałbym nawiązać do sytuacji w Nowym Targu. Chodzi mianowicie o zatrucie wody bakterią Clostridium.</rdfs:label>
+
+    <skos:notation>PDC-G 39</skos:notation>
+
+    <hasBroad>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Broad_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Broad"/>
+            <rdfs:label>Chciałbym nawiązać do sytuacji w Nowym Targu.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasBroad>
+    <hasSpecific>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Specific_2.1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Specific"/>
+            <rdfs:label>Chodzi</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasSpecific>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_mianowicie">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>mianowicie</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasSpecific>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Specific_2.2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Specific"/>
+            <rdfs:label>o zatrucie wody bakterią Clostridium</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</skos:order>
+        </owl:NamedIndividual>
+    </hasSpecific>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Elaboration_3">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Elaboration"/>
+    <rdfs:label>Element ten to, mówiąc fachowo, kinaza proteinowa JANUS 2, a więc cząsteczka z szeroko pojętej rodziny przekaźników.</rdfs:label>
+
+    <skos:notation>PDC-G 40</skos:notation>
+
+    <hasBroad>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Broad_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Broad"/>
+            <rdfs:label>Element ten to, mówiąc fachowo, kinaza proteinowa JANUS 2,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasBroad>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_a_wiec">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>a więc</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasSpecific>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Specific_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Specific"/>
+            <rdfs:label>cząsteczka z szeroko pojętej rodziny przekaźników.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasSpecific>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Elaboration_4">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Elaboration"/>
+    <rdfs:label>To jest po prostu zadanie dla geniuszy. Ściślej mówiąc, wymaga naprawdę niesamowitych umiejętności z zakresu Machine Learningu.</rdfs:label>
+
+    <skos:notation>PDC-G 41</skos:notation>
+
+    <hasBroad>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Broad_4">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Broad"/>
+            <rdfs:label>To jest po prostu zadanie dla geniuszy.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasBroad>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_scislej_mowiac">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>Ściślej mówiąc,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasSpecific>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Specific_4">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Specific"/>
+            <rdfs:label>wymaga naprawdę niesamowitych umiejętności z zakresu Machine Learningu.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasSpecific>
+</owl:NamedIndividual>
+
+
+<!-- RESTATEMENT -->
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Restatement_1">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Restatement"/>
+    <rdfs:label>Gdy klient nie miał już pieniędzy i przypomniał sobie o polisie, dowiadywał się w siedzibie towarzystwa o tak zwanym współczynniku wartości wykupu polisy. Innymi słowy, nie dostawał tego co wpłacił.</rdfs:label>
+
+    <skos:notation>PDC-G 42</skos:notation>
+
+    <hasArg1>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg1_Restatement">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+            <rdfs:label>Gdy klient nie miał już pieniędzy i przypomniał sobie o polisie, dowiadywał się w siedzibie towarzystwa o tak zwanym współczynniku wartości wykupu polisy.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasArg1>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_innymi_slowy">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>Innymi słowy,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasArg2>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg2_Restatement">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+            <rdfs:label>nie dostawał tego co wpłacił.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasArg2>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Restatement_2">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Restatement"/>
+    <rdfs:label>Jest bardzo zajęty, czyli nie ma teraz czasu.</rdfs:label>
+
+    <skos:notation>PDC-G 43</skos:notation>
+
+    <hasArg1>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg1_Restatement_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+            <rdfs:label>Jest bardzo zajęty,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasArg1>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_czyli_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>czyli</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasArg2>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg2_Restatement_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+            <rdfs:label>nie ma teraz czasu.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasArg2>
+</owl:NamedIndividual>
+
+
+<!-- SYNCHRONY -->
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Synchrony_1">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Synchrony"/>
+    <rdfs:label>Rozumiał to Gombrowicz, kiedy pisał o Dantem.</rdfs:label>
+
+    <skos:notation>PDC-G 44</skos:notation>
+
+    <hasArg1>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg1_Synchrony_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+            <rdfs:label>Rozumiał to Gombrowicz,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasArg1>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_kiedy">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>kiedy</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasArg2>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg2_Synchrony_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+            <rdfs:label>pisał o Dantem.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasArg2>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Synchrony_2">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Synchrony"/>
+    <rdfs:label>Będę popierał tę inicjatywę i szybko przekażę interpelację prezydentowi.</rdfs:label>
+
+    <skos:notation>PDC-G 45</skos:notation>
+
+    <hasArg1>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg1_Synchrony_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+            <rdfs:label>Będę popierał tę inicjatywę</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasArg1>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_i_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>i</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasArg2>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg2_Synchrony_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+            <rdfs:label>szybko przekażę interpelację prezydentowi.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasArg2>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Synchrony_3">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Synchrony"/>
+    <rdfs:label>Gdy wszyscy spali, zdezorientowany nietoperz wtargnął z impetem do sypialni.</rdfs:label>
+
+    <skos:notation>PDC-G 46</skos:notation>
+
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_gdy_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>Gdy</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasArg1>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg1_Synchrony_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+            <rdfs:label>wszyscy spali</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasArg1>
+    <hasArg2>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Arg2_Synchrony_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+            <rdfs:label>zdezorientowany nietoperz wtargnął z impetem do sypialni.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasArg2>
+</owl:NamedIndividual>
+
+
+<!-- ASYNCHRONY -->
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Asynchrony">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Asynchrony"/>
+    <rdfs:label>Córki upieką ciasta. Potem przyjdzie czas na prezenty.</rdfs:label>
+
+    <skos:notation>PDC-G 47</skos:notation>
+
+    <hasBefore>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Before_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Before"/>
+            <rdfs:label>Córki upieką ciasta,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasBefore>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_potem">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>potem</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasAfter>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_After_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#After"/>
+            <rdfs:label>przyjdzie czas na prezenty.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasAfter>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Asynchrony_2">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Asynchrony"/>
+    <rdfs:label>Wcześniej uciekała pewna piętnastoletnia panienka, potem ten trzynastolatek.</rdfs:label>
+
+    <skos:notation>PDC-G 48</skos:notation>
+
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_potem_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>Wcześniej</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasBefore>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Before_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Before"/>
+            <rdfs:label>uciekała pewna piętnastoletnia panienka,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasBefore>
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_potem_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>potem</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasAfter>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_After_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#After"/>
+            <rdfs:label>ten trzynastolatek.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</skos:order>
+        </owl:NamedIndividual>
+    </hasAfter>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Asynchrony_3">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Asynchrony"/>
+    <rdfs:label>Zanim uzbierała potrzebną sumę na łapówkę, było już za późno.</rdfs:label>
+
+    <skos:notation>PDC-G 49</skos:notation>
+
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_zanim">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>Zanim</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasAfter>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_After_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#After"/>
+            <rdfs:label>uzbierała potrzebną sumę na łapówkę,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasAfter>
+    <hasBefore>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Before_3">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Before"/>
+            <rdfs:label>było już za późno.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasBefore>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Asynchrony_4">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Asynchrony"/>
+    <rdfs:label>Po tym, jak skończyła anotować pierwszą partię tekstów, uznała, że warto wyjechać w Bieszczady.</rdfs:label>
+
+    <skos:notation>PDC-G 50</skos:notation>
+
+    <hasConnective>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Connective_po_tym_jak">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+            <rdfs:label>Po tym, jak</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasConnective>
+    <hasBefore>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Before_4">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Before"/>
+            <rdfs:label>skończyła anotować pierwszą partię tekstów,</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasBefore>
+    <hasAfter>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_After_4">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#After"/>
+            <rdfs:label>uznała, że warto wyjechać w Bieszczady.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:order>
+        </owl:NamedIndividual>
+    </hasAfter>
+</owl:NamedIndividual>
+
+
+<!-- EXPANSION -->
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Expansion_1">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Expansion"/>
+    <rdfs:label>Uparła się, żebym poszedł na studia... W czasie okupacji bardzo się narażała, żeby mnie uratować...</rdfs:label>
+
+    <skos:notation>PDC-G 51</skos:notation>
+
+    <hasNarrative>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Narrative_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Narrative"/>
+            <rdfs:label>Uparła się, żebym poszedł na studia...</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasNarrative>
+    <hasExpander>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Expander_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Expander"/>
+            <rdfs:label>W czasie okupacji bardzo się narażała, żeby mnie uratować...</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasExpander>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Expansion_2">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Expansion"/>
+    <rdfs:label>Kupiłam nową książkę. Czasami lubię czytać kryminały.</rdfs:label>
+                                
+    <skos:notation>PDC-G 52</skos:notation>
+
+    <hasNarrative>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Narrative_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Narrative"/>
+            <rdfs:label>Kupiłam nową książkę.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasNarrative>
+    <hasExpander>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_Expander_2">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Expander"/>
+            <rdfs:label>Czasami lubię czytać kryminały.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasExpander>
+</owl:NamedIndividual>
+
+
+<!-- FUNCTIONAL DEPENDENCE -->
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_FunctionalDependence">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FunctionalDependence"/>
+    <rdfs:label>— No jak, odpowiada wam? — Owszem, odpowiada.</rdfs:label>
+
+    <skos:notation>PDC-G 53</skos:notation>
+
+    <hasAntecedentAct>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_AntecedentAct_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#AntecedentAct"/>
+            <rdfs:label>— No jak, odpowiada wam?</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasAntecedentAct>
+    <hasDependentAct>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_DependentAct_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#DependentAct"/>
+            <rdfs:label>— Owszem, odpowiada.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasDependentAct>
+</owl:NamedIndividual>
+
+
+<!-- FEEDBACK DEPENDENCE -->
+
+<owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_FeedbackDependence">
+    <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FeedbackDependence"/>
+    <rdfs:label>— A nasze dzieci są inne. — Tak, one są inne.</rdfs:label>
+
+    <skos:notation>PDC-G 54</skos:notation>
+
+    <hasFeedbackScope>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_FeedbackScope_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FeedbackScope"/>
+            <rdfs:label>— A nasze dzieci są inne.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:order>
+        </owl:NamedIndividual>
+    </hasFeedbackScope>
+    <hasFeedbackAct>
+        <owl:NamedIndividual rdf:about="http://purl.org/olia/discourse/discourse.ISO.PL.owl#Example_FeedbackAct_1">
+            <rdf:type rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FeedbackAct"/>
+            <rdfs:label>— Tak, one są inne.</rdfs:label>
+            <skos:order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:order>
+        </owl:NamedIndividual>
+    </hasFeedbackAct>
+</owl:NamedIndividual>
+
+</rdf:RDF>

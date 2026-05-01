@@ -1,0 +1,1045 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#"
+     xml:base="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl"
+     xmlns:iso="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#">
+    <owl:Ontology rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl">
+        <rdfs:comment xml:lang="en">ISO DR-Core (ISO 24617-8) adapted by Universal Discourse project: Core Concepts for the Annotation of Discourse Relations
+
+The schema reuses the discourse.ISO.UDisc.owl from Discourse Extensions of the Ontologies of Linguistic Annotation (OLiA) by extending definitions:
+- removing definition of an asymmetric argument role; Arg1 and Arg2 are represented as primitives and used also in symmetric relations to allow for discontinuities
+- adding definition of a connective (with a label based on ISO 24617-8 definition from Section 3: Terms and definitions, definition 3.4: discourse connective, p. 2
+- changing order of Cause arguments: for Result (to Arg1, was Arg2) and Reason (to Arg2, was Arg1)
+- changing order of Condition arguments: for Consequent (to Arg1, was Arg2) and Antecedent (to Arg2, was Arg1)
+- changing ID of Antecedent argument of Condition relation (was AntecedentOfCondition); the split to ConsequentOfCondition and ConsequentofNegativeCondition was preserved
+- changing label of Negative Condition (was Consequent)
+- changing order of Purpose arguments: for Enablement (to Arg1, was Arg2) and Goal (to Arg2, was Arg1)
+- changing order of Manner arguments: for Achievement (to Arg1, was Arg2) and Means (to Arg2, was Arg1)
+- changing ID of Regular argument of Exception relation (was RegularSituation)
+- correcting label of Exemplification relation (was Excemplification)
+- changing IDs of Broad and Specific arguments of Elaboration relation (were BroadPartOfElaboration and SpecificPartOfElaboration)
+- changing Expansion arguments to Narrative (from Foreground) and Expander (from EntityDescription)
+- adding object properties for each relation which enables instatiation
+- updating relation definitions based on Table 1 from ISO 24617-8 (pp. 12–13)
+
+References:
+Harry Bunt and Rashmi Prasad (2012), ISO DR-Core (ISO 24617-8): Core Concepts for the Annotation of Discourse Relations, paper presented at ISA-12
+ISO 24617-8:2016: Language resource management – Semantic annotation framework (SemAF) – Part 8: Semantic relations in discourse, core annotation schema (DR-core).
+Maciej Ogrodniczuk and Dariusz Czerski (2026). Towards Corpus-Based Population and Visualization of ISO 24617-8 Ontology. In Proceedings of the 2026 Joint ACL – ISO Workshop on Interoperable Semantic Annotation (ISA-22) at LREC 2026. Palma de Mallorca, Spain. European Language Resources Association.
+
+Funding information:
+Funded in whole by the National Science Centre, Poland, grant 2023/50/A/HS2/00559 ('Universal Discourse: a multilingual model of discourse relations').</rdfs:comment>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Core definitions
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#DRel -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#DRel">
+        <rdfs:comment>A discourse relation is a relation expressed in discourse (written, spoken, or multimodal) between  abstract objects, such as events, states, conditions, and dialogue acts.
+• Discourse relations can be expressed explicitly in text/speech or can be implicit. The annotation of  implicit relations may optionally include the specification of a connective that could express the inferred relation.
+• A discourse relation takes two and only two arguments. Arguments can be shared by different  relations.
+• The meaning of discourse relations is described in informational terms.
+• Pragmatic aspects of meaning involving beliefs and dialogue acts as arguments are represented as a property of arguments, rather than of discourse relations.
+• Discourse relations are categorized as a flat set of relations.
+• Annotations are at a low level; ISO DR-Core is agnostic towards the nature of the global structure of a text or dialogue.
+• Asymmetrical relations are represented with relation-specific argument role labels.
+• The relative importance of a relation’s arguments  with respect to the text as a whole is not represented as such.
+• No a priori assumptions are made concerning constraints on syntactic form, syntactic complexity, or  textual adjacency of expressions that may realize the arguments of a discourse relation.
+
+In ISO DR-Core, annotations abstract over the linear ordering for argument realizations, since this is not a semantic distinction. Asymmetry is represented by specifying the argument roles in the definition of each relation, arguments bearing relation-specific semantic roles.
+
+(Bunt &amp; Prasad, ISA-12)
+
+Note that ISO DR-Core DRels proper are only the grand children of DRel, grouped into symmetric and asymmetric discourse relations. Because of the entailment relation between argument roles and discourse relations, the argument roles have been modelled as their subclasses. In terms of ISO DR-Core, however, these are not in a hierarchical structure, but only in an entailment relation.</rdfs:comment>
+        <rdfs:label>DRel</rdfs:label>
+        <rdfs:label>discourse relation</rdfs:label>
+    </owl:Class>
+
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#AsymmetricDRel -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#AsymmetricDRel">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#DRel"/>
+        <rdfs:label>Asymmetric</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#SymmetricDRel -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#SymmetricDRel">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#DRel"/>
+        <rdfs:comment>ISO DR-Core distinguishes symmetric and asymmetric discourse relations, and this is formalized as inheritance hierarchy here (whereas ISO DRels are considered to be a flat list that differ in the symmetry feature).</rdfs:comment>
+        <rdfs:label>Symmetric</rdfs:label>
+    </owl:Class>
+
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1 -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1">
+        <rdfs:label>Arg1</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2 -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2">
+        <rdfs:label>Arg2</rdfs:label>
+    </owl:Class>
+
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective">
+        <rdfs:comment>A discourse connective is a word or multi-word expression expressing a discourse relation.</rdfs:comment>
+        <rdfs:label>Connective</rdfs:label>
+    </owl:Class>
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Discourse relations and arguments
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Cause
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Cause -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Cause">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#AsymmetricDRel"/>
+        <rdfs:comment>Arg2 is an explanation for Arg1.</rdfs:comment>
+        <rdfs:label>Cause</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Result -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Result">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Cause"/>
+        <rdfs:label>Result</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Reason -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Reason">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Cause"/>
+        <rdfs:label>Reason</rdfs:label>
+    </owl:Class>
+
+    <!-- Object properties -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasResult">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Cause"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Result"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasReason">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Cause"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Reason"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConnective">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Cause"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+    </owl:ObjectProperty>
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Condition
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Condition -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Condition">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#AsymmetricDRel"/>
+        <rdfs:comment>Arg2 is an unrealized situation which, when realized, would lead to Arg1.</rdfs:comment>
+        <rdfs:label>Condition</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#ConsequentOfCondition -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Consequent">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Condition"/>
+        <rdfs:label>Consequent</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Antecedent -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Antecedent">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Condition"/>
+        <rdfs:label>Antecedent</rdfs:label>
+    </owl:Class>
+
+    <!-- Object properties -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConsequent">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Condition"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Consequent"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasAntecedent">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Condition"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Antecedent"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConnective">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Condition"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+    </owl:ObjectProperty>
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Negative condition
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#NegativeCondition -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#NegativeCondition">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#AsymmetricDRel"/>
+        <rdfs:comment>Arg2 is an unrealized situation which, when “not” realized, would lead to Arg1.</rdfs:comment>
+        <rdfs:label>Negative Condition</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#ConsequentOfNegativeCondition -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#ConsequentOfNegativeCondition">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#NegativeCondition"/>
+        <rdfs:label>Consequent</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#NegatedAntecedent -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#NegatedAntecedent">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#NegativeCondition"/>
+        <rdfs:label>Negated-antecedent</rdfs:label>
+    </owl:Class>
+
+    <!-- Object properties -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConsequentOfNegativeCondition">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#NegativeCondition"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#ConsequentOfNegativeCondition"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasNegatedAntecedent">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#NegativeCondition"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#NegatedAntecedent"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConnective">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#NegativeCondition"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+    </owl:ObjectProperty>
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Purpose
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Purpose -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Purpose">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#AsymmetricDRel"/>
+        <rdfs:comment>Arg2 is the goal or purpose of the situation described by Arg1.</rdfs:comment>
+        <rdfs:label>Purpose</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Enablement -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Enablement">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Purpose"/>
+        <rdfs:label>Enablement</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Goal -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Goal">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Purpose"/>
+        <rdfs:label>Goal</rdfs:label>
+    </owl:Class>
+
+    <!-- Object properties -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasEnablement">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Purpose"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Enablement"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasGoal">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Purpose"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Goal"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConnective">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Purpose"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+    </owl:ObjectProperty>
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Manner
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Manner -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Manner">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#AsymmetricDRel"/>
+        <rdfs:comment>Arg2 describes how Arg1 comes about or occurs.</rdfs:comment>
+        <rdfs:label>Manner</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Achievement -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Achievement">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Manner"/>
+        <rdfs:label>Achievement</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Means -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Means">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Manner"/>
+        <rdfs:label>Means</rdfs:label>
+    </owl:Class>
+
+    <!-- Object properties -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasAchievement">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Manner"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Achievement"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasMeans">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Manner"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Means"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConnective">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Manner"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+    </owl:ObjectProperty>
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Concession
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Concession -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Concession">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#AsymmetricDRel"/>
+        <rdfs:comment>An expected causal relation between Arg1 and ¬Arg2 is cancelled or denied by Arg2.</rdfs:comment>
+        <rdfs:label>Concession</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#ExpectationRaiser -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#ExpectationRaiser">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Concession"/>
+        <rdfs:label>Expectation-raiser</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#ExpectationDenier -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#ExpectationDenier">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Concession"/>
+        <rdfs:label>Expectation-denier</rdfs:label>
+    </owl:Class>
+
+    <!-- Object properties -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasExpectationRaiser">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Concession"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#ExpectationRaiser"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasExpectationDenier">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Concession"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#ExpectationDenier"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConnective">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Concession"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+    </owl:ObjectProperty>
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Contrast
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Contrast -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Contrast">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#SymmetricDRel"/>
+        <rdfs:comment>One or more differences between Arg1 and Arg2 are highlighted with respect to what each predicates as a whole or to some entities they mention.</rdfs:comment>
+        <rdfs:label>Contrast</rdfs:label>
+    </owl:Class>
+
+    <!-- Object properties -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasArg1">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Contrast"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasArg2">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Contrast"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConnective">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Contrast"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+    </owl:ObjectProperty>
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Exception
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exception -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exception">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#AsymmetricDRel"/>
+        <rdfs:comment>Arg2 indicates one or more circumstances in which the situation(s) described by Arg1 does not hold.</rdfs:comment>
+        <rdfs:label>Exception</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Regular -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Regular">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exception"/>
+        <rdfs:label>Regular</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exclusion -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exclusion">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exception"/>
+        <rdfs:label>Exclusion</rdfs:label>
+    </owl:Class>
+
+    <!-- Object properties -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasRegular">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exception"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Regular"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasExclusion">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exception"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exclusion"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConnective">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exception"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+    </owl:ObjectProperty>
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Similarity
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Similarity -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Similarity">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#SymmetricDRel"/>
+        <rdfs:comment>One or more similarities between Arg1 and Arg2 are highlighted with respect to what each predicates as a whole or to some entities they mention.</rdfs:comment>
+        <rdfs:label>Similarity</rdfs:label>
+    </owl:Class>
+
+    <!-- Object properties -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasArg1">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Similarity"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasArg2">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Similarity"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConnective">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Similarity"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+    </owl:ObjectProperty>
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Substitution
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Substitution -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Substitution">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#AsymmetricDRel"/>
+        <rdfs:comment>Arg1 and Arg2 are alternatives, with Arg2 being the favoured or chosen alternative.</rdfs:comment>
+        <rdfs:label>Substitution</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#DisfavouredAlternative -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#DisfavouredAlternative">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Substitution"/>
+        <rdfs:label>Disfavoured-alternative</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FavouredAlternative -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FavouredAlternative">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Substitution"/>
+        <rdfs:label>Favoured-alternative</rdfs:label>
+    </owl:Class>
+
+    <!-- Object properties -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasDisfavouredAlternative">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Substitution"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#DisfavouredAlternative"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasFavouredAlternative">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Substitution"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FavouredAlternative"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConnective">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Substitution"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+    </owl:ObjectProperty>
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Conjunction
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Conjunction -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Conjunction">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#SymmetricDRel"/>
+        <rdfs:comment>Arg1 and Arg2 bear the same relation to some other situation evoked in discourse. Their conjunction indicates that they both hold with respect to that situation.</rdfs:comment>
+        <rdfs:label>Conjunction</rdfs:label>
+    </owl:Class>
+
+    <!-- Object properties -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasArg1">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Conjunction"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasArg2">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Conjunction"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConnective">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Conjunction"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+    </owl:ObjectProperty>
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Disjunction
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Disjunction -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Disjunction">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#SymmetricDRel"/>
+        <rdfs:comment>Arg1 and Arg2 bear the same relation to some other situation evoked in the discourse, explicitly or implicitly. Their disjunction indicates that they are alternatives with respect to that situation, with the disjunction being non-exclusive so that both Arg1 and Arg2 may hold.</rdfs:comment>
+        <rdfs:label>Disjunction</rdfs:label>
+    </owl:Class>
+
+    <!-- Object properties -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasArg1">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Disjunction"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasArg2">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Disjunction"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConnective">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Disjunction"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+    </owl:ObjectProperty>
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Exemplification
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exemplification -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exemplification">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#AsymmetricDRel"/>
+        <rdfs:comment>Arg1 describes a set of situations; Arg2 describes an element of that set.</rdfs:comment>
+        <rdfs:label>Exemplification</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Set -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Set">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exemplification"/>
+        <rdfs:label>Set</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Instance -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Instance">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exemplification"/>
+        <rdfs:label>Instance</rdfs:label>
+    </owl:Class>
+
+    <!-- Object properties -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasSet">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exemplification"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Set"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasInstance">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exemplification"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Instance"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConnective">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Exemplification"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+    </owl:ObjectProperty>
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Elaboration
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Elaboration -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Elaboration">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#AsymmetricDRel"/>
+        <rdfs:comment>Arg1 and Arg2 are the same situation, but Arg2 contains more detail.</rdfs:comment>
+        <rdfs:label>Elaboration</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Broad -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Broad">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Elaboration"/>
+        <rdfs:label>Broad</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Specific -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Specific">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Elaboration"/>
+        <rdfs:label>Specific</rdfs:label>
+    </owl:Class>
+
+    <!-- Object properties -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasBroad">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Elaboration"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Broad"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasSpecific">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Elaboration"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Specific"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConnective">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Elaboration"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+    </owl:ObjectProperty>
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Restatement
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Restatement -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Restatement">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#SymmetricDRel"/>
+        <rdfs:comment>Arg1 and Arg2 describe the same situation, but from different perspectives.</rdfs:comment>
+        <rdfs:label>Restatement</rdfs:label>
+    </owl:Class>
+
+    <!-- Object properties -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasArg1">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Restatement"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasArg2">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Restatement"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConnective">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Restatement"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+    </owl:ObjectProperty>
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Synchrony
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Synchrony -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Synchrony">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#SymmetricDRel"/>
+        <rdfs:comment>Some degree of temporal overlap exists between Arg1 and Arg2. All forms of overlap are included.</rdfs:comment>
+        <rdfs:label>Synchrony</rdfs:label>
+    </owl:Class>
+
+    <!-- Object properties -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasArg1">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Synchrony"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasArg2">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Synchrony"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConnective">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Synchrony"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+    </owl:ObjectProperty>
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Asynchrony
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Asynchrony -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Asynchrony">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#AsymmetricDRel"/>
+        <rdfs:comment>Arg1 temporally precedes Arg2.</rdfs:comment>
+        <rdfs:label>Asynchrony</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Before -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Before">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Asynchrony"/>
+        <rdfs:label>Before</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#After -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#After">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Asynchrony"/>
+        <rdfs:label>After</rdfs:label>
+    </owl:Class>
+
+    <!-- Object properties -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasBefore">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Asynchrony"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Before"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasAfter">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Asynchrony"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#After"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConnective">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Asynchrony"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+    </owl:ObjectProperty>
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Expansion
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Expansion -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Expansion">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#AsymmetricDRel"/>
+        <rdfs:comment>Arg2 is a situation involving some entity/entities in Arg1, expanding the narrative forward of which Arg1 is a part, or expanding on the setting relevant for interpreting Arg1. The Arg1 and Arg2 situations are distinct.</rdfs:comment>
+        <rdfs:label>Expansion</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Foreground -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Narrative">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Expansion"/>
+        <rdfs:label>Narrative</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#EntityDescription -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Expander">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Expansion"/>
+        <rdfs:label>Expander</rdfs:label>
+    </owl:Class>
+
+    <!-- Object properties -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasNarrative">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Expansion"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Narrative"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasExpander">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Expansion"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Expander"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConnective">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Expansion"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+    </owl:ObjectProperty>
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Functional dependence
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FunctionalDependence -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FunctionalDependence">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#AsymmetricDRel"/>
+        <rdfs:comment>Arg2 is a dialogue act with a responsive communicative function; Arg1 is the dialogue act(s) that Arg2 responds to.</rdfs:comment>
+        <rdfs:label>Functional dependence</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#AntecedentAct -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#AntecedentAct">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FunctionalDependence"/>
+        <rdfs:label>Antecedent-act</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#DependentAct -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#DependentAct">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FunctionalDependence"/>
+        <rdfs:label>Dependent-act</rdfs:label>
+    </owl:Class>
+
+    <!-- Object properties -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasAntecedentAct">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FunctionalDependence"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#AntecedentAct"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasDependentAct">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FunctionalDependence"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#DependentAct"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConnective">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FunctionalDependence"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+    </owl:ObjectProperty>
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Feedback dependence
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FeedbackDependence -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FeedbackDependence">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#AsymmetricDRel"/>
+        <rdfs:comment>Arg2 is a feedback act that provides or elicits information about the understanding or evaluation by one of the dialogue participants of Arg1.</rdfs:comment>
+        <rdfs:label>Feedback dependence</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FeedbackScope -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FeedbackScope">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg1"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FeedbackDependence"/>
+        <rdfs:label>Feedback-scope</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FeedbackAct -->
+
+    <owl:Class rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FeedbackAct">
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Arg2"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FeedbackDependence"/>
+        <rdfs:label>Feedback-act</rdfs:label>
+    </owl:Class>
+
+    <!-- Object properties -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasFeedbackScope">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FeedbackDependence"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FeedbackScope"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasFeedbackAct">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FeedbackDependence"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FeedbackAct"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#hasConnective">
+        <rdfs:domain rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#FeedbackDependence"/>
+        <rdfs:range rdf:resource="http://purl.org/olia/discourse/discourse.ISO.UDisc.owl#Connective"/>
+    </owl:ObjectProperty>
+
+</rdf:RDF>
