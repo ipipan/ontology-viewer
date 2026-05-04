@@ -22,7 +22,7 @@ import { ConnectiveData } from '../../models/example.model';
           <select 
             [ngModel]="service.filters().language" 
             (ngModelChange)="onLanguageChange($event)"
-            class="w-full border border-gray-300 rounded-md px-3 py-2 bg-gray-50 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            class="custom-select w-full border border-gray-300 rounded-md py-2 bg-gray-50 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option [ngValue]="undefined">All Languages</option>
             <option *ngFor="let lang of languages" [value]="lang">{{ lang }}</option>
@@ -133,7 +133,7 @@ import { ConnectiveData } from '../../models/example.model';
           <select 
             [ngModel]="service.filters().symmetric" 
             (ngModelChange)="onSymmetricChange($event)"
-            class="w-full border border-gray-300 rounded-md px-3 py-2 bg-gray-50 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            class="custom-select w-full border border-gray-300 rounded-md py-2 bg-gray-50 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option [ngValue]="undefined">All</option>
             <option [ngValue]="true">Symmetric</option>

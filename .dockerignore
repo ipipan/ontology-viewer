@@ -1,0 +1,15 @@
+.git/
+.gitignore
+data/
+data_backup/
+new_data/
+article/
+ssl-cert/
+tmp_tools/
+scripts/
+__pycache__/
+*.md
+.env
+.env.example
+.editorconfig
+**/node_modules/

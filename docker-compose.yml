@@ -13,7 +13,9 @@ services:
   # Nginx Reverse Proxy — Entry point, SSL termination, DDoS protection
   # ===========================================================================
   nginx:
-    image: nginx:1.27-alpine
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
     container_name: ontology-nginx
     restart: unless-stopped
     ports:
@@ -23,9 +25,7 @@ services:
       # Nginx configuration (mounted directly as main config)
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/conf.d/security.conf:/etc/nginx/conf.d/security.conf:ro
-      # Frontend static files (built by frontend service) — must come BEFORE error pages
-      - frontend_assets:/usr/share/nginx/html:ro
-      # Custom error pages (separate directory — mounted before frontend volume)
+      # Custom error pages (separate directory — must come after html volume)
       - ./nginx/html:/usr/share/nginx/custom_errors:ro
       # SSL certificates (user-provided)
       - ./nginx/ssl:/etc/nginx/ssl:ro
@@ -37,8 +37,6 @@ services:
       # nginx variables like $host, $uri, $remote_addr, etc.
       - NGINX_ENVSUBST_FILTER=DOMAIN_NAME
     depends_on:
-      frontend:
-        condition: service_completed_successfully
       backend:
         condition: service_healthy
     networks:
@@ -105,20 +103,6 @@ services:
         max-size: "10m"
         max-file: "3"
 
-  # ===========================================================================
-  # Frontend — Angular Build (build-only, outputs to shared volume)
-  # ===========================================================================
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    container_name: ontology-frontend-build
-    volumes:
-      - frontend_assets:/app/dist/ontology-viewer
-    # This container exits after copying built assets — that's expected
-    restart: "no"
-
-
 # =============================================================================
 # Networks — Isolate backend from direct external access
 # =============================================================================
@@ -133,7 +117,5 @@ networks:
 # Volumes
 # =============================================================================
 volumes:
-  frontend_assets:
-    driver: local
   nginx_logs:
     driver: local
