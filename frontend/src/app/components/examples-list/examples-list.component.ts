@@ -68,12 +68,16 @@ import { Example, OrderedElement, Argument, Connective } from '../../models/exam
           <!-- Arguments and Connective (merged and sorted by order) -->
           <div class="relations-grid">
             <div class="relations-header">Type</div>
+            <div class="relations-header"></div>
             <div class="relations-header">Text</div>
             <div class="relations-header">Order</div>
             <ng-container *ngFor="let el of getOrderedElements(example)">
-              <!-- Type column -->
+              <!-- Kind column -->
               <div class="relations-cell">
-                <span class="text-xs font-medium text-gray-500">{{ el.kind === 'arg1' ? 'Arg1' : el.kind === 'arg2' ? 'Arg2' : 'Conn' }}:</span>
+                <span class="text-xs font-medium text-gray-500">{{ el.kind === 'arg1' ? 'Arg1' : el.kind === 'arg2' ? 'Arg2' : 'Conn' }}</span>
+              </div>
+              <!-- Arg Type column -->
+              <div class="relations-cell">
                 <span *ngIf="el.kind === 'arg1'" class="px-2 py-1 text-xs bg-red-100 text-red-800 rounded">{{ asArg(el).type }}</span>
                 <span *ngIf="el.kind === 'arg2'" class="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded">{{ asArg(el).type }}</span>
                 <span *ngIf="el.kind === 'connective'" class="px-2 py-1 text-xs bg-purple-100 text-purple-800 rounded">Connective</span>
@@ -128,7 +132,7 @@ import { Example, OrderedElement, Argument, Connective } from '../../models/exam
   styles: [`
     .relations-grid {
       display: grid;
-      grid-template-columns: auto 1fr auto;
+      grid-template-columns: auto auto 1fr auto;
       gap: 0;
       border: 1px solid #e5e7eb;
       border-radius: 0.375rem;
@@ -151,7 +155,7 @@ import { Example, OrderedElement, Argument, Connective } from '../../models/exam
       padding: 0.375rem 0.75rem;
       border-bottom: 1px solid #f3f4f6;
     }
-    .relations-grid > .relations-cell:nth-last-child(-n+3) {
+    .relations-grid > .relations-cell:nth-last-child(-n+4) {
       border-bottom: none;
     }
   `]

@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from typing import List, Optional
+from typing import List, Optional, Set
 import os
 from pathlib import Path
 import traceback
@@ -58,7 +58,7 @@ async def get_corpora():
 
 @app.get("/api/examples", response_model=PaginatedResponse)
 async def get_examples(
-    corpus: str = Query(..., description="Corpus name"),
+    corpus: Optional[List[str]] = Query(None, description="Corpus names (repeat for multi-select)"),
     language: Optional[str] = Query(None, description="Language filter"),
     connective: Optional[str] = Query(None, description="Connective text filter"),
     relation: Optional[str] = Query(None, description="Relation type filter"),
@@ -69,11 +69,13 @@ async def get_examples(
 ):
     """Get paginated examples with filtering"""
     try:
-        # Get all examples for the specified corpus
-        all_examples = [
-            ex for ex in parser.get_all_examples() 
-            if ex.corpus == corpus
-        ]
+        # Get all examples, optionally filtered by corpus
+        all_examples = parser.get_all_examples()
+        if corpus:
+            all_examples = [
+                ex for ex in all_examples
+                if ex.corpus in corpus
+            ]
         
         # Apply filters
         filtered_examples = all_examples
@@ -132,7 +134,9 @@ async def get_ontology_classes():
     return parser.get_ontology_classes()
 
 @app.get("/api/ontology/relations", response_model=List[dict])
-async def get_ontology_relations():
+async def get_ontology_relations(
+    corpus: Optional[List[str]] = Query(None, description="Corpus names to filter by")
+):
     """Get list of relation classes with symmetry information"""
     classes = parser.get_ontology_classes()
     relations = []
@@ -141,9 +145,19 @@ async def get_ontology_relations():
     symmetric_drel_uri = parser.ISO_NS + "SymmetricDRel"
     asymmetric_drel_uri = parser.ISO_NS + "AsymmetricDRel"
 
+    # If corpus filter is provided, collect relation labels that exist in those corpora
+    allowed_labels: Optional[Set[str]] = None
+    if corpus:
+        allowed_labels = set()
+        for ex in parser.get_all_examples():
+            if ex.corpus in corpus:
+                allowed_labels.add(ex.relation)
+
     for cls in classes:
         # Only include classes that are direct subclasses of SymmetricDRel or AsymmetricDRel
         if symmetric_drel_uri in cls.parent_uris or asymmetric_drel_uri in cls.parent_uris:
+            if allowed_labels is not None and cls.label not in allowed_labels:
+                continue
             relations.append({
                 "label": cls.label,
                 "uri": cls.uri,
@@ -153,9 +167,11 @@ async def get_ontology_relations():
     return relations
 
 @app.get("/api/connectives", response_model=List[ConnectiveData])
-async def get_connectives():
+async def get_connectives(
+    corpus: Optional[List[str]] = Query(None, description="Corpus names to filter by")
+):
     """Get list of unique connectives with their occurrence counts"""
-    connectives_data = parser.get_connectives()
+    connectives_data = parser.get_connectives(corpora=corpus)
     return [ConnectiveData(label=conn["label"], count=conn["count"]) for conn in connectives_data]
 
 # Error handlers

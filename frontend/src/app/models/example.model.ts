@@ -51,7 +51,7 @@ export interface ConnectiveData {
 }
 
 export interface FilterParams {
-  corpus: string;
+  corpus?: string[];
   language?: string;
   connective?: string;
   relation?: string;

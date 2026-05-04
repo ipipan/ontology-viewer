@@ -59,7 +59,7 @@ class ErrorResponse(BaseModel):
     code: str
 
 class FilterParams(BaseModel):
-    corpus: str
+    corpus: Optional[List[str]] = None
     language: Optional[str] = None
     connective: Optional[str] = None
     relation: Optional[str] = None

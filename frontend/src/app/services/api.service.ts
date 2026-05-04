@@ -12,9 +12,8 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  // Filters state kept centrally via signals
+  // Filters state kept centrally via signals – no corpus selected by default
   private _filters = signal<FilterParams>({
-    corpus: 'PDC',
     page: 1,
     page_size: 25
   });
@@ -50,7 +49,14 @@ export class ApiService {
       let httpParams = new HttpParams();
       Object.entries(params).forEach(([key, value]) => {
         if (value !== undefined && value !== null && value !== '') {
-          httpParams = httpParams.set(key, String(value));
+          // Handle array values (e.g. corpus) by appending each element
+          if (Array.isArray(value)) {
+            (value as string[]).forEach(v => {
+              httpParams = httpParams.append(key, String(v));
+            });
+          } else {
+            httpParams = httpParams.set(key, String(value));
+          }
         }
       });
       const request$ = this.http.get<PaginatedResponse>(`${this.baseUrl}/examples`, { params: httpParams });
@@ -66,11 +72,23 @@ export class ApiService {
     return this.http.get<any[]>(`${this.baseUrl}/ontology/classes`);
   }
 
-  getOntologyRelations(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/ontology/relations`);
+  getOntologyRelations(corpora?: string[]): Observable<any[]> {
+    let params = new HttpParams();
+    if (corpora) {
+      corpora.forEach(c => {
+        params = params.append('corpus', c);
+      });
+    }
+    return this.http.get<any[]>(`${this.baseUrl}/ontology/relations`, { params });
   }
 
-  getConnectives(): Observable<ConnectiveData[]> {
-    return this.http.get<ConnectiveData[]>(`${this.baseUrl}/connectives`);
+  getConnectives(corpora?: string[]): Observable<ConnectiveData[]> {
+    let params = new HttpParams();
+    if (corpora) {
+      corpora.forEach(c => {
+        params = params.append('corpus', c);
+      });
+    }
+    return this.http.get<ConnectiveData[]>(`${this.baseUrl}/connectives`, { params });
   }
 }

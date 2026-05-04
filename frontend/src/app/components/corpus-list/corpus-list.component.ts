@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { Corpus } from '../../models/example.model';
@@ -14,26 +14,50 @@ import { Corpus } from '../../models/example.model';
       <div class="space-y-3">
         <div
           *ngFor="let corpus of corpora"
-          (click)="corpus.count > 0 ? selectCorpus(corpus) : null"
-          [class.bg-blue-50]="selectedCorpus?.name === corpus.name && corpus.count > 0"
-          [class.border-blue-300]="selectedCorpus?.name === corpus.name && corpus.count > 0"
+          (click)="corpus.count > 0 ? toggleCorpus(corpus) : null"
+          [class.bg-blue-50]="isSelected(corpus) && corpus.count > 0"
+          [class.border-blue-300]="isSelected(corpus) && corpus.count > 0"
           [class.bg-gray-50]="corpus.count === 0"
           [class.border-gray-200]="corpus.count === 0"
           [class.cursor-not-allowed]="corpus.count === 0"
           class="p-3 border rounded-lg transition-colors"
           [class.cursor-pointer]="corpus.count > 0"
-          [class.hover:bg-gray-100]="corpus.count > 0"
+          [class.hover:bg-gray-100]="corpus.count > 0 && !isSelected(corpus)"
         >
           <div class="flex justify-between items-center">
-            <span class="font-medium text-gray-900">{{ corpus.name }}</span>
+            <div class="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                [checked]="isSelected(corpus)"
+                [disabled]="corpus.count === 0"
+                (click)="$event.stopPropagation(); corpus.count > 0 ? toggleCorpus(corpus) : null"
+                class="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+              />
+              <span class="font-medium text-gray-900">{{ corpus.name }}</span>
+            </div>
             <span class="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
               {{ corpus.count }}
             </span>
           </div>
-          <div class="text-sm text-gray-500 mt-1">
+          <div class="text-sm text-gray-500 mt-1 ml-6">
             Language: {{ corpus.language }}
           </div>
         </div>
+      </div>
+
+      <div *ngIf="corpora.length > 0" class="mt-3 flex gap-2">
+        <button
+          (click)="selectAll()"
+          class="px-3 py-1 text-xs font-medium text-blue-700 bg-blue-50 border border-blue-200 rounded-md hover:bg-blue-100 transition-colors"
+        >
+          Select All
+        </button>
+        <button
+          (click)="deselectAll()"
+          class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-50 border border-gray-200 rounded-md hover:bg-gray-100 transition-colors"
+        >
+          Deselect All
+        </button>
       </div>
 
       <div *ngIf="loading" class="text-center py-4">
@@ -53,7 +77,7 @@ import { Corpus } from '../../models/example.model';
 })
 export class CorpusListComponent implements OnInit {
   corpora: Corpus[] = [];
-  selectedCorpus: Corpus | null = null;
+  selectedCorpora: Set<string> = new Set();
   loading = false;
   error = '';
 
@@ -72,11 +96,7 @@ export class CorpusListComponent implements OnInit {
         // Sort corpora by number of examples (count) in descending order
         this.corpora = data.sort((a, b) => b.count - a.count);
         this.loading = false;
-
-        // Auto-select first corpus if available (will be the one with most examples)
-        if (this.corpora.length > 0) {
-          this.selectCorpus(this.corpora[0]);
-        }
+        // No auto-select: user must explicitly choose corpora
       },
       error: (err) => {
         this.error = 'Failed to load corpora';
@@ -86,8 +106,35 @@ export class CorpusListComponent implements OnInit {
     });
   }
 
-  selectCorpus(corpus: Corpus): void {
-    this.selectedCorpus = corpus;
-    this.apiService.updateFilter('corpus', corpus.name);
+  isSelected(corpus: Corpus): boolean {
+    return this.selectedCorpora.has(corpus.name);
+  }
+
+  toggleCorpus(corpus: Corpus): void {
+    if (this.selectedCorpora.has(corpus.name)) {
+      this.selectedCorpora.delete(corpus.name);
+    } else {
+      this.selectedCorpora.add(corpus.name);
+    }
+    this.applyCorpusFilter();
+  }
+
+  selectAll(): void {
+    for (const corpus of this.corpora) {
+      if (corpus.count > 0) {
+        this.selectedCorpora.add(corpus.name);
+      }
+    }
+    this.applyCorpusFilter();
+  }
+
+  deselectAll(): void {
+    this.selectedCorpora.clear();
+    this.applyCorpusFilter();
+  }
+
+  private applyCorpusFilter(): void {
+    const selected = Array.from(this.selectedCorpora);
+    this.apiService.updateFilter('corpus', selected.length > 0 ? selected : undefined);
   }
 }

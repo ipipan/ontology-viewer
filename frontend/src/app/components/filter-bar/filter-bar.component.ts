@@ -1,4 +1,4 @@
-import { Component, OnInit, computed, signal } from '@angular/core';
+import { Component, OnInit, computed, signal, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -224,7 +224,13 @@ import { ConnectiveData } from '../../models/example.model';
   styles: []
 })
 export class FilterBarComponent implements OnInit {
-  constructor(public service: ApiService) {}
+  constructor(public service: ApiService) {
+    // Watch for corpus filter changes and reload filter options accordingly
+    effect(() => {
+      const corpora = this.service.filters().corpus;
+      this.reloadFilterOptions(corpora);
+    });
+  }
 
   languages: string[] = [];
   relations: string[] = [];
@@ -261,8 +267,6 @@ export class FilterBarComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.loadFilterOptions();
-    
     // Set initial search text if filters are already applied
     const currentConnective = this.service.filters().connective;
     if (currentConnective) {
@@ -275,25 +279,38 @@ export class FilterBarComponent implements OnInit {
     }
   }
 
-  loadFilterOptions(): void {
+  /** Reload relations & connectives dropdown options, filtered by the selected corpora */
+  private reloadFilterOptions(corpora?: string[]): void {
     // Load languages from API or hardcode based on known data
     this.languages = ['pl', 'en']; // Example languages
 
-    // Load relations from API
-    this.service.getOntologyRelations().subscribe({
+    // Load relations from API (filtered by corpus)
+    this.service.getOntologyRelations(corpora).subscribe({
       next: (data) => {
         this.relations = data.map(rel => rel.label).filter((v, i, a) => a.indexOf(v) === i);
+        // Clear relation filter if it no longer exists in available options
+        const currentRelation = this.service.filters().relation;
+        if (currentRelation && !this.relations.includes(currentRelation)) {
+          this.service.clearFilter('relation');
+          this.relationSearchText.set('');
+        }
       },
       error: (err) => {
         console.error('Error loading relations:', err);
-        this.relations = ['Purpose', 'Cause', 'Condition', 'Concession']; // Fallback
+        this.relations = [];
       }
     });
 
-    // Load connectives from API
-    this.service.getConnectives().subscribe({
+    // Load connectives from API (filtered by corpus)
+    this.service.getConnectives(corpora).subscribe({
       next: (data) => {
         this.connectives = data;
+        // Clear connective filter if it no longer exists in available options
+        const currentConnective = this.service.filters().connective;
+        if (currentConnective && !this.connectives.some(c => c.label === currentConnective)) {
+          this.service.clearFilter('connective');
+          this.connectiveSearchText.set('');
+        }
       },
       error: (err) => {
         console.error('Error loading connectives:', err);

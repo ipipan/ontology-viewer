@@ -457,12 +457,16 @@ class OntologyParser:
         """Get all ontology classes"""
         return list(self.ontology_classes.values())
 
-    def get_connectives(self) -> List[Dict[str, Any]]:
+    def get_connectives(self, corpora: Optional[List[str]] = None) -> List[Dict[str, Any]]:
         """Get all unique connectives with their occurrence counts"""
         connective_counts: Dict[str, int] = {}
 
-        # Count occurrences of each connective across all examples
-        for example in self.examples:
+        # Count occurrences of each connective across all (or filtered) examples
+        examples = self.examples
+        if corpora:
+            examples = [ex for ex in examples if ex.corpus in corpora]
+
+        for example in examples:
             for conn in example.connective:
                 text = conn.text.strip()
                 if text:
